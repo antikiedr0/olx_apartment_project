@@ -5,6 +5,7 @@ A data pipeline that scrapes, cleans, and stores apartment listings from the Pol
 ## Overview
 
 This project collects apartment listings from **OLX** and **Otodom** — the two largest real estate platforms in Poland — across major Polish cities. The data is processed through an automated pipeline and stored in a PostgreSQL database, enabling market analysis and AI-based insights into pricing trends, availability, and property characteristics.
+![Uploading image.png…]()
 
 ## Features
 
