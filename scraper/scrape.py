@@ -7,7 +7,7 @@ class Scrapper:
     def __init__(self, page):
         self.urls = []
         self.city = page.split('/')[5]  # extract city name from URL
-        for i in range(1,15):
+        for i in range(1,25):
             self.urls.append(page + str(i))
 
     def main(self):
@@ -44,8 +44,8 @@ class Scrapper:
                         try:
                             intcena = int(intcena)
                             wartosc = 0
-                            # skip listings below 50 000 PLN to filter out rooms and garages
-                            if intcena > 50000:
+                            # skip listings below 60 000 PLN to filter out rooms and garages
+                            if intcena > 60000:
                                 wartosc = intcena
                             if wartosc > 0:
                                 print(f"Tytuł: {tytul}")
