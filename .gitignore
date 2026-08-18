@@ -1,12 +1,3 @@
 /venv
-__pycache__/
-*.pyc
-
-data/oferty.txt
-data/linki.txt
-data/dane.txt
-data/dane.json
-data/dane_clean.json
-
-.vscode/
-.env
+/.vscode
+/.ruf_cache

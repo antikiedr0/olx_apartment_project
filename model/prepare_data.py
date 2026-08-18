@@ -12,12 +12,14 @@ def load_data():
 
     # fill missing values
     df['rodzaj_zabudowy'] = df['rodzaj_zabudowy'].fillna('inne')
+    # umeblowane is binary — convert tak/nie to 1/0, unknown defaults to 0
+    df['umeblowane'] = (df['umeblowane'] == 'tak').astype(int)
 
-    # features used for training (dropped poziom and umeblowane — 82% nulls)
-    features = ['miasto', 'powierzchnia', 'liczba_pokoi', 'rynek', 'rodzaj_zabudowy']
+    features = ['miasto', 'powierzchnia', 'liczba_pokoi', 'rynek', 'rodzaj_zabudowy', 'umeblowane']
     target = 'cena_m2_pln'
 
-    df = df[features + [target]].dropna()
+    # drop only rows where non-umeblowane features are missing
+    df = df[features + [target]].dropna(subset=[c for c in features if c != 'umeblowane'] + [target])
 
     # remove outliers — realistic range for Polish apartments is 3000–50000 PLN/m²
     df = df[(df[target] >= 3000) & (df[target] <= 50000)]

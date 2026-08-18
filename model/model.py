@@ -7,7 +7,7 @@ class Model(nn.Module):
     def __init__(self):
         super().__init__()
         self.layers = nn.Sequential(
-            nn.Linear(21, 64),
+            nn.Linear(22, 64),
             nn.ReLU(),
             nn.Dropout(0.2),     # randomly drops 20% of neurons to prevent overfitting
             nn.Linear(64, 128),
